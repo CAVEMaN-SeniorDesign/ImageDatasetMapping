@@ -18,18 +18,18 @@ if os.name == 'posix':
             if os.path.isdir(os.path.join(images_color_path, f)):
                 try:
                     shutil.copytree(os.path.join(images_color_path, f), os.path.join(repo_path_color, f))
-                    shutil.rmtree(os.path.join(images_color_path, f))
                 except:
                     print(f"{f} folder already exists")
+                shutil.rmtree(os.path.join(images_color_path, f))
 
 
         for f in os.listdir(images_depth_path):
             if os.path.isdir(os.path.join(images_depth_path, f)):
                 try:
                     shutil.copytree(os.path.join(images_depth_path, f), os.path.join(repo_path_depth + "", f))
-                    shutil.rmtree(os.path.join(images_depth_path, f))
                 except:
                     print(f"{f} folder already exists")
+                shutil.rmtree(os.path.join(images_depth_path, f))
 
 gitAdd = subprocess.run(["git", "add", "."])
 gitCommit = subprocess.run(["git", "commit", "-m", f'"copy and uploaded images on {dt.datetime.now()}"'])
