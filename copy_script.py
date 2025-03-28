@@ -31,5 +31,6 @@ if os.name == 'posix':
                 except:
                     print(f"{f} folder already exists")
 
-gitAdd = subprocess.run(["git", "add" "."])
+gitAdd = subprocess.run(["git", "add", "."])
 gitCommit = subprocess.run(["git", "commit", "-m", f'"copy and uploaded images on {dt.datetime.now()}"'])
+gitPush = subprocess.run(["git", "push"])
