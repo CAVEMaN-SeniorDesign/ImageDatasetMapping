@@ -4,6 +4,8 @@ import os
 images_color_path = "/root/images_Color"
 images_depth_path = "/root/images_Depth"
 repo_path = "/root/ImageDatasetMapping"
+repo_path_color = repo_path + "/images_Color"
+repo_path_depth = repo_path + "/images_Depth"
 
 try:
     shutil.copytree(images_color_path, os.path.join(repo_path, "images_Color"))
@@ -12,8 +14,8 @@ except:
     for f in os.listdir(images_color_path): 
         if os.path.isdir(os.path.join(images_color_path, f)):
             try:
-                shutil.copytree(os.path.join(images_color_path, f), os.path.join(repo_path, f))
-                shutil.rmtree(os.path.join(images_color_path, f))
+                shutil.copytree(os.path.join(images_color_path, f), os.path.join(repo_path_color, f))
+                # shutil.rmtree(os.path.join(images_color_path, f))
             except:
                 print(f"{f} folder already exists")
 
@@ -21,7 +23,7 @@ except:
     for f in os.listdir(images_depth_path):
         if os.path.isdir(os.path.join(images_depth_path, f)):
             try:
-                shutil.copytree(os.path.join(images_depth_path, f), os.path.join(repo_path, f))
-                shutil.rmtree(os.path.join(images_depth_path, f))
+                shutil.copytree(os.path.join(images_depth_path, f), os.path.join(repo_path_depth + "", f))
+                # shutil.rmtree(os.path.join(images_depth_path, f))
             except:
                 print(f"{f} folder already exists")
